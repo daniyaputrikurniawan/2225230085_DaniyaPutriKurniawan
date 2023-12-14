@@ -24,7 +24,7 @@
             <table class="table">
     <thead>
         <tr>
-        <th scope="col">No</th>
+        <th scope="col", class="text-center">No Absen</th>
         <th scope="col">Nama</th>
         <th scope="col">Foto</th>
         <th scope="col">NISN</th>
@@ -40,7 +40,7 @@
       @endphp
         @foreach ($data as $row)
             <tr>
-                <th scope="row">{{ $no++ }}</th>
+                <th scope="row", class="text-center">{{ $no++ }}</th>
                 <td>{{ $row->nama }}</td>
                 <td>
                   <img src="{{ asset('fotosiswa/'.$row->foto) }}" alt="" style="width: 40px; " >
