@@ -14,4 +14,12 @@ use App\Http\Controllers\EmployeeController;
 |
 */
 
-Route::get('/', [EmployeeController::class, 'index']);
+Route::get('/', [EmployeeController::class, 'index'])->name('siswa');
+
+Route::get('/tambahsiswa', [EmployeeController::class, 'tambahsiswa']);
+Route::post('/insertdata', [EmployeeController::class, 'insertdata']);
+
+Route::get('/tampilkandata/{id}', [EmployeeController::class, 'tampilkandata']);
+Route::post('/updatedata/{id}', [EmployeeController::class, 'updatedata']);
+
+Route::get('/delete/{id}', [EmployeeController::class, 'delete']);

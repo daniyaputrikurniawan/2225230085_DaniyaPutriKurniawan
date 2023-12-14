@@ -11,15 +11,22 @@
     <title>UAS Daniya Putri Kurniawan</title>
   </head>
   <body>
-    <h1 class="text-center">Data Siswa Kelas B SMA Ki Hajar Dewantoro Tangerang</h1>
+    <h1 class="text-center">Data Siswa-siswi Kelas B SMP Ki Hajar Dewantoro Tangerang</h1>
+    <h2 class="text-center">Tahun Ajaran 2023/2024</h2>
         <div class="container">
-        <button type="button" class="btn btn-success">Tambah</button>
+        <a href="/tambahsiswa" class="btn btn-success">Tambah</a>
             <div class="row">
+              @if ($message = Session::get('success'))
+                <div class="alert alert-success" role="alert">
+                  {{ $message }}
+                </div>
+              @endif
             <table class="table">
     <thead>
         <tr>
-        <th scope="col">#</th>
+        <th scope="col">No</th>
         <th scope="col">Nama</th>
+        <th scope="col">Foto</th>
         <th scope="col">NISN</th>
         <th scope="col">Jenis Kelamin</th>
         <th scope="col">No Handphone</th>
@@ -28,17 +35,23 @@
         </tr>
     </thead>
     <tbody>
+      @php
+        $no = 1;
+      @endphp
         @foreach ($data as $row)
             <tr>
-                <th scope="row">{{ $row->id }}</th>
+                <th scope="row">{{ $no++ }}</th>
                 <td>{{ $row->nama }}</td>
+                <td>
+                  <img src="{{ asset('fotosiswa/'.$row->foto) }}" alt="" style="width: 40px; " >
+                </td>
                 <td>{{ $row->nisn }}</td>
                 <td>{{ $row->jeniskelamin }}</td>
                 <td>{{ $row->nohandphone }}</td>
                 <td>{{ $row->email }}</td>
                 <td>
-                    <button type="button" class="btn btn-danger">Delete</button>
-                    <button type="button" class="btn btn-info">Edit</button>
+                    <a href="tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</a>
+                    <a href="/delete/{{ $row->id }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
         @endforeach

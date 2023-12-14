@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('jeniskelamin',['laki-laki','perempuan']);
             $table->bigInteger('nohandphone');
             $table->string('email');
+            $table->string('foto');
             $table->timestamps();
         });
     }
